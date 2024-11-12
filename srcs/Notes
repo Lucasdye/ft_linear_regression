@@ -1,0 +1,4 @@
+Dataset : m = 24, n = 1 (prix)
+Model : Regression lineaire     
+Fonction de cout : (1 * Σ(f(xi) - yi)**2) / (m * 2)
+Algo de reduction de cout : gradient descendents
