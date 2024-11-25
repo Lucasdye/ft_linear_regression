@@ -1,1 +1,1 @@
-from .linear_regression import retrieve_dataset
+from .linear_regression import linear_regression
