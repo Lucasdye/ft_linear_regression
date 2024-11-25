@@ -16,6 +16,7 @@ def gradient(x, y, theta):
 def gradient_descent(x, y, theta, lr, turns):
 	for i in range(0, turns):
 		theta = theta - lr * gradient(x, y, theta)
+		print()
 	return theta
 
 def retrieve_dataset(path):

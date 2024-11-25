@@ -1,4 +1,4 @@
-import plotting as plot
+import srcs.brouillon.plotting as plot
 import pandas as pd
 import numpy as np
 import random
