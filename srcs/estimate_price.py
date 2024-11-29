@@ -9,10 +9,8 @@ def waiting_for_input():
     Blocks the program until the user enters text
     """
     str = ""
-    while str == "":
+    while str == "" or str.isdigit() is False:
         str = input("Enter a mileage: ")
-    if str.isdigit() is False:
-        waiting_for_input()
     return (str)
 
 
@@ -25,8 +23,8 @@ def main():
     x = np.hstack((x, np.ones(1)))
 
     # creating parameters matrix
-    theta = np.hstack((np.array(params.theta0), np.array(params.theta1))).reshape(2, 1)
-    # print(theta)
+    theta = np.hstack((np.array(params.theta1), np.array(params.theta0))).reshape(2, 1)
+    print(theta)
 
     # Result
     print(ln.model(x, theta))

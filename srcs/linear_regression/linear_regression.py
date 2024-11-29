@@ -51,6 +51,8 @@ def training():
 	# Normalizing values between 0 and 1 (prevents float underflow)
 	xmin = np.min(x)
 	xmax = np.max(x)
+	print(xmin)
+	print(xmax)
 	for i in range(len(x)):
 		nx[i] = (x[i] - xmin) / (xmax - xmin)
 
@@ -79,14 +81,15 @@ def training():
 	plt.savefig(fname=params.stats_path + "cost_function_res")
 	plt.clf()
 
-	# Denormalize theta1 (adjust the slope)
-	theta1_real = theta[1] * (xmax - xmin)
+	# Renormalize theta1 (slope)
+	theta1_real = res["theta"][0] / (xmax - xmin)
 
-	# Denormalize theta0 (adjust the intercept)
-	theta0_real = theta[0] - (theta[1] * (xmin + xmax) / 2)
+	# Renormalize theta0 (intercept)
+	theta0_real = res["theta"][1] - (res["theta"][0] * xmin) / (xmax - xmin)
 	
 	# Write down the new theta in params.py
 	with open("/home/lu/Coding/ft_linear_regression_git/srcs/params/params.py", "r") as f:
+		print("changing file content")
 		content = f.read()
 		content = content.replace("theta0 = 0", f"theta0 = {float(theta0_real)}")
 		content = content.replace("theta1 = 0", f"theta1 = {float(theta1_real)}")
